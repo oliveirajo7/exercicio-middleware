@@ -2,12 +2,11 @@ function autenticarUsuario(req, res, next) {
   const { tipoUsuario } = req.body;
 
   if (tipoUsuario === "ADMIN") {
-    next();
-
+    return next();
+    
   } else {
-
-    res.status(403).json({ mensagem: "Funcao nao permitida para esse usuario" });
+    return res.status(401).json({ mensagem: "Função não permitida para esse usuário" });
   }
-}
+};
 
 export { autenticarUsuario };
